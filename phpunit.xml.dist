@@ -11,6 +11,7 @@
     <filter>
         <whitelist>
             <directory suffix=".php">src/CodiceFiscale/</directory>
+            <directory suffix=".php">vendor/</directory>
         </whitelist>
     </filter>
 </phpunit>
