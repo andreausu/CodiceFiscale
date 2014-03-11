@@ -1,6 +1,6 @@
 {
     "name": "usu/codice-fiscale",
-    "description": "Codice Fiscale calculator",
+    "description": "A library to calculate the italian fiscal code (codice fiscale)",
     "keywords": ["codice fiscale", "php"],
     "homepage": "http://andreausu.github.com/CodiceFiscale",
     "license": "MIT",
