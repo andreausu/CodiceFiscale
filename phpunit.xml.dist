@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit colors="true"
+        stopOnFailure="true">
+    <testsuites>
+        <testsuite name="CodiceFiscale Test Suite">
+            <directory>test/</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory suffix=".php">src/CodiceFiscale/</directory>
+        </whitelist>
+    </filter>
+</phpunit>
