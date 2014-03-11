@@ -3,6 +3,8 @@ CodiceFiscale
 
 A library to calculate the italian fiscal code (codice fiscale).
 
+[![Build Status](https://travis-ci.org/andreausu/CodiceFiscale.png?branch=master)](https://travis-ci.org/andreausu/CodiceFiscale)
+
 Requirements
 ------------
 
