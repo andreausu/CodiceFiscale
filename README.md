@@ -44,7 +44,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 use CodiceFiscale\Calculator;
 
 $calc = new Calculator();
-$calc->('Nome', 'Cognome', 'M', new \DateTime('1992-03-06') 'F205O');
+$calc->('Nome', 'Cognome', 'M', new \DateTime('1992-03-06') 'F205');
 ```
 
 Testing
