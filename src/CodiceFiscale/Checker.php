@@ -1,7 +1,7 @@
 namespace CodiceFiscale;
 
 /**
- * Class fo check if italian fiscal's code (codice fiscale) is formally Correct
+ * Class to check if italian fiscal's code (codice fiscale) is formally Correct
  * @author SimoneNigro
  *
  */
