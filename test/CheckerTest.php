@@ -9,8 +9,8 @@ class CheckerTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->codiciFiscaliOk = [
-            "SLLNDR91C06F205S",
-            "SXLNDQ67C48Z210L"
+            "RSSMRA79S18F205J",
+            "CHRVRD74S53L219F"
         ];
 
         $this->codiciFiscaliKo = [
