@@ -42,9 +42,22 @@ How to use
 require_once __DIR__ . '/vendor/autoload.php';
 
 use CodiceFiscale\Calculator;
+use CodiceFiscale\Checker;
 
 $calc = new Calculator();
 $calc->('Nome', 'Cognome', 'M', new \DateTime('1992-03-06') 'F205');
+
+$chk = new Checker();
+if( $chk->isFormallyCorrect('RSSMRA79S18F205J') ){
+    print('Codice Fiscale formally correct');
+    printf('<p>Birth Day: %s</p>',     $chk->GetDayBirth());
+    printf('<p>Birth Month: %s</p>',   $chk->GetMonthBirth());
+    printf('<p>Birth Year: %s</p>',    $chk->GetYearBirth());
+    printf('<p>Birth Country: %s</p>', $chk->GetCountryBirth());
+    printf('<p>Sex: %s</p>',           $chk->GetSex());
+} else {
+    print('Codice Fiscale wrong');
+}
 ```
 
 Testing
