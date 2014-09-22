@@ -49,6 +49,9 @@ class Calculator
         return $codiceFiscale;
     }
 
+    /**
+     * @param string $string
+     */
     private function calcolaNome($string)
     {
         $i = 0;
@@ -80,6 +83,9 @@ class Calculator
         return substr($res, 0, 3);
     }
 
+    /**
+     * @param string $string
+     */
     private function calcolaCognome($string)
     {
         $res = '';

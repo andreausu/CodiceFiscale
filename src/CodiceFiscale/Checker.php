@@ -175,7 +175,7 @@ class Checker
 
     /**
      * Check Codice Fiscale
-     * @param string $CodiceFiscale
+     * @param string $codiceFiscale
      * @return boolean
      */
     public function isFormallyCorrect($codiceFiscale)
