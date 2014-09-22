@@ -242,7 +242,7 @@ class Checker
 
             // get day birth if sex is women
             if ($this->sex == self::CHR_WOMEN) {
-                $this->DayBirth = $this->dayBirth - 40;
+                $this->dayBirth = $this->dayBirth - 40;
 
                 if (strlen($this->dayBirth) === 1) {
                     $this->dayBirth = '0' . $this->dayBirth;
