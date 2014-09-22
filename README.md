@@ -48,13 +48,13 @@ $calc = new Calculator();
 $calc->('Nome', 'Cognome', 'M', new \DateTime('1992-03-06') 'F205');
 
 $chk = new Checker();
-if( $chk->isFormallyCorrect('RSSMRA79S18F205J') ){
+if ($chk->isFormallyCorrect('RSSMRA79S18F205J')) {
     print('Codice Fiscale formally correct');
-    printf('<p>Birth Day: %s</p>',     $chk->GetDayBirth());
-    printf('<p>Birth Month: %s</p>',   $chk->GetMonthBirth());
-    printf('<p>Birth Year: %s</p>',    $chk->GetYearBirth());
-    printf('<p>Birth Country: %s</p>', $chk->GetCountryBirth());
-    printf('<p>Sex: %s</p>',           $chk->GetSex());
+    printf('Birth Day: %s',     $chk->getDayBirth());
+    printf('Birth Month: %s',   $chk->getMonthBirth());
+    printf('Birth Year: %s',    $chk->getYearBirth());
+    printf('Birth Country: %s', $chk->getCountryBirth());
+    printf('Sex: %s',           $chk->getSex());
 } else {
     print('Codice Fiscale wrong');
 }
