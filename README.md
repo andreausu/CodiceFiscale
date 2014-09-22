@@ -18,7 +18,7 @@ Create a composer.json file with the following content:
 ``` json
 {
     "require": {
-        "usu/codice-fiscale": "0.2.*"
+        "usu/codice-fiscale": "1.0.*"
     }
 }
 ```
