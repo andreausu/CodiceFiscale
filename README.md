@@ -1,7 +1,7 @@
 CodiceFiscale
 ==============
 
-A library to calculate the italian fiscal code (codice fiscale).
+A library to calculate and check the validity of the italian fiscal code (codice fiscale).
 
 [![Build Status](https://travis-ci.org/andreausu/CodiceFiscale.png?branch=master)](https://travis-ci.org/andreausu/CodiceFiscale) [![Latest Stable Version](https://poser.pugx.org/usu/codice-fiscale/v/stable.svg)](https://packagist.org/packages/usu/codice-fiscale) [![Total Downloads](https://poser.pugx.org/usu/codice-fiscale/downloads.svg)](https://packagist.org/packages/usu/codice-fiscale) [![License](https://poser.pugx.org/usu/codice-fiscale/license.svg)](https://packagist.org/packages/usu/codice-fiscale)
 
