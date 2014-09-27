@@ -23,7 +23,8 @@ class CodiciCatastaliTest extends \PHPUnit_Framework_TestCase
 
     public function testCodiciCatastali()
     {
-    	$cc = new \CodiceFiscale\CodiciCatastali(dirname(dirname(__FILE__)).'\data\CCList.txt');
+    	$DR = DIRECTORY_SEPARATOR;
+    	$cc = new \CodiceFiscale\CodiciCatastali(dirname(dirname(__FILE__)).$DR.'data'.$DR.'CCList.txt');
 
         foreach ($this->codici as $cod => $expt) {
             $this->assertEquals($expt, $cc->GetComune($cod));
