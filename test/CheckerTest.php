@@ -8,16 +8,16 @@ class CheckerTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->codiciFiscaliOk = [
+        $this->codiciFiscaliOk = array(
             "RSSMRA79S18F205J",
             "CHRVRD74S53L219F"
-        ];
+        );
 
-        $this->codiciFiscaliKo = [
+        $this->codiciFiscaliKo = array(
             "SLLNDR91C06F205",
             "SXLNDQ67CS8Z210L",
             "XSD91S67CS8Z210L"
-        ];
+        );
     }
 
     public function testCorrettezzaFormaleCodiceFiscale()
