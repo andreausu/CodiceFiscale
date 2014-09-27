@@ -197,8 +197,10 @@ class Checker
             if (!preg_match(self::REGEX_CODICEFISCALE, $codiceFiscale)) {
                 $this->raiseException(2);
             }
-
+			
             $codiceFiscale = strtoupper($codiceFiscale);
+            
+            $cFCharList = array();
             $cFCharList = str_split($codiceFiscale);
 
             // check omocodia
@@ -231,7 +233,7 @@ class Checker
                 }
             }
 
-            $codiceFiscaleAdattato = implode($cFCharList);
+            $codiceFiscaleAdattato = implode('',$cFCharList);
 
             // get fiscal code data
             $this->sex = ((int)(substr($codiceFiscaleAdattato, 9, 2) > 40) ? self::CHR_WOMEN : self::CHR_MALE);
