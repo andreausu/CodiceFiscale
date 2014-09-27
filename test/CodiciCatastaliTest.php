@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 
-class CodiciCatastaliTest extends PHPUnit_Framework_TestCase
+class CodiciCatastaliTest extends \PHPUnit_Framework_TestCase
 {
     protected $codici;
     protected $comuni; 
