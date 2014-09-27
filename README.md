@@ -8,7 +8,7 @@ A library to calculate and check the validity of the italian fiscal code (codice
 Requirements
 ------------
 
-- php >= 5.4
+- php >= 5.3
 
 Installation
 ------------
