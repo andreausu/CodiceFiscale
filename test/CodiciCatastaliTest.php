@@ -21,7 +21,7 @@ class CodiciCatastaliTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    public function testGetComune()
+    public function testCodiciCatastali()
     {
     	$cc = new \CodiceFiscale\CodiciCatastali(dirname(dirname(__FILE__)).'\data\CCList.txt');
 
