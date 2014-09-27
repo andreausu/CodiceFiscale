@@ -11,7 +11,7 @@ class CodiciCatastaliTest extends \PHPUnit_Framework_TestCase
         $this->codici = array(
             "A001" => "ABANO TERME",
             "Z356" => "ZANZIBAR",
-        	"XXXX" => null
+            "XXXX" => null
         );
 
         $this->comuni = array(
