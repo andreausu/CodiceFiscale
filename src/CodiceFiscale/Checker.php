@@ -197,8 +197,10 @@ class Checker
             if (!preg_match(self::REGEX_CODICEFISCALE, $codiceFiscale)) {
                 $this->raiseException(2);
             }
-
+			
             $codiceFiscale = strtoupper($codiceFiscale);
+            
+            $cFCharList = array();
             $cFCharList = str_split($codiceFiscale);
 
             // check omocodia
@@ -231,22 +233,18 @@ class Checker
                 }
             }
 
-            $codiceFiscaleAdattato = implode($cFCharList);
+            $codiceFiscaleAdattato = implode('',$cFCharList);
 
             // get fiscal code data
             $this->sex = ((int)(substr($codiceFiscaleAdattato, 9, 2) > 40) ? self::CHR_WOMEN : self::CHR_MALE);
             $this->countryBirth = substr($codiceFiscaleAdattato, 11, 4);
-            $this->yearBirth = substr($codiceFiscaleAdattato, 6, 2);
-            $this->dayBirth = substr($codiceFiscaleAdattato, 9, 2);
-            $this->monthBirth = $this->listDecMonth[substr($codiceFiscaleAdattato, 8, 1)];
+            $this->yearBirth = (int)substr($codiceFiscaleAdattato, 6, 2);
+            $this->dayBirth = (int)substr($codiceFiscaleAdattato, 9, 2);
+            $this->monthBirth = (int)$this->listDecMonth[substr($codiceFiscaleAdattato, 8, 1)];
 
             // get day birth if sex is women
             if ($this->sex == self::CHR_WOMEN) {
                 $this->dayBirth = $this->dayBirth - 40;
-
-                if (strlen($this->dayBirth) === 1) {
-                    $this->dayBirth = '0' . $this->dayBirth;
-                }
             }
 
             // End verify
