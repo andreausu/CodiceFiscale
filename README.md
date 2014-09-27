@@ -8,7 +8,7 @@ A library to calculate and check the validity of the italian fiscal code (codice
 Requirements
 ------------
 
-- php >= 5.4
+- php >= 5.3
 
 Installation
 ------------
@@ -45,18 +45,22 @@ use CodiceFiscale\Calculator;
 use CodiceFiscale\Checker;
 
 $calc = new Calculator();
-$calc->('Nome', 'Cognome', 'M', new \DateTime('1992-03-06') 'F205');
+
+$CF = $calc->calcola('Nome', 'Cognome', 'M', new \DateTime('1992-03-06'), 'F205');
+
+printf('<p>Codice Fiscale: %s</p>', $CF);
 
 $chk = new Checker();
-if ($chk->isFormallyCorrect('RSSMRA79S18F205J')) {
-    print('Codice Fiscale formally correct');
-    printf('Birth Day: %s',     $chk->getDayBirth());
-    printf('Birth Month: %s',   $chk->getMonthBirth());
-    printf('Birth Year: %s',    $chk->getYearBirth());
-    printf('Birth Country: %s', $chk->getCountryBirth());
-    printf('Sex: %s',           $chk->getSex());
+
+if ($chk->isFormallyCorrect($CF)) {
+    printf('<p>Codice Fiscale %s formally correct</p>', $CF);
+    printf('<p>Birth Day: %s</p>',     $chk->getDayBirth());
+    printf('<p>Birth Month: %s</p>',   $chk->getMonthBirth());
+    printf('<p>Birth Year: %s</p>',    $chk->getYearBirth());
+    printf('<p>Birth Country: %s</p>', $chk->getCountryBirth());
+    printf('<p>Sex: %s</p>',           $chk->getSex());
 } else {
-    print('Codice Fiscale wrong');
+    printf('<p>Codice Fiscale %s wrong</p>', $CF);
 }
 ```
 
