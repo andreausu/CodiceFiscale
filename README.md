@@ -47,7 +47,7 @@ use CodiceFiscale\CodiciCatastali;
 
 $calc = new Calculator();
 $chk  = new Checker();
-$cc   = new CodiciCatastali(__DIR__.'/data/CCList.txt');
+$cc   = new CodiciCatastali(__DIR__.DIRECTORY_SEPARATOR.'data'.DIRECTORY_SEPARATOR.'CCList.txt');
 
 $nome = 'Nome';
 $cognome = 'Cognome';
