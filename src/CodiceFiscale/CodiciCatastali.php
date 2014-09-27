@@ -78,11 +78,22 @@ class CodiciCatastali {
         return (isset($this->CCList[$CCCode])) ? $this->CCList[$CCCode] : null;
     }
     
+    
     /**
      * Get Codice Catastale from Comune
      * @param string $Comune
      */
     public function GetCodiceCatastale($Comune){
     	return array_search(strtoupper($Comune), $this->CCList);
+    }
+    
+    
+    /**
+     * Get Codici Catastali
+     * @return array
+     */
+    public function GetCodiciCatastali()
+    {
+    	return $this->CCList;
     }
 }
