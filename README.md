@@ -45,7 +45,7 @@ use CodiceFiscale\Calculator;
 use CodiceFiscale\Checker;
 
 $calc = new Calculator();
-$calc->('Nome', 'Cognome', 'M', new \DateTime('1992-03-06') 'F205');
+$calc->calcola('Nome', 'Cognome', 'M', new \DateTime('1992-03-06'), 'F205');
 
 $chk = new Checker();
 if ($chk->isFormallyCorrect('RSSMRA79S18F205J')) {
