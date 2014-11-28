@@ -65,7 +65,7 @@ Testing
 
 The library is fully tested with PHPUnit.
 
-Go to the base library folder and install the dev dependencies with composer, and then run the phpunit test suite
+Go to the root folder, install the dev dependencies with composer, and then run the phpunit test suite
 
 ``` bash
 $ composer --dev install
