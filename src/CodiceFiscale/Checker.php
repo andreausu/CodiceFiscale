@@ -260,6 +260,23 @@ class Checker
         return $this->isValid;
     }
 
+    /**
+     * @return \DateTime
+     * @throws \Exception
+     */
+    public function calculateBirthDate()
+    {
+        $dateString = sprintf('%s-%s-%s', $this->yearBirth, $this->monthBirth, $this->dayBirth);
+        $birthDate = \DateTime::createFromFormat('y-m-d', $dateString);
+        if ($birthDate === false) {
+            throw new \RuntimeException('Cannot calculate birth date. Invalid date "%s".', $dateString);
+        }
+        if ($birthDate > new \DateTime('now')) {
+            $birthDate->modify('-100 years');
+        }
+        return $birthDate;
+    }
+
 
     /**
      * Reset Class Properties

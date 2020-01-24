@@ -32,4 +32,11 @@ class CheckerTest extends \PHPUnit_Framework_TestCase
             $this->assertFalse($checker->isFormallyCorrect($cf));
         }
     }
+
+    public function testGetDateOfBirth()
+    {
+        $checker = new \CodiceFiscale\Checker();
+        $this->assertTrue($checker->isFormallyCorrect('CGNNMO56C06F205I'));
+        $this->assertEquals(\DateTime::createFromFormat('Y-m-d', '1956-03-06'), $checker->calculateBirthDate());
+    }
 }
