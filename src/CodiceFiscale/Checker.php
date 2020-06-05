@@ -10,7 +10,7 @@ namespace CodiceFiscale;
 class Checker
 {
     // fiscal's code regex
-    const REGEX_CODICEFISCALE = '/^[a-z]{6}[0-9]{2}[a-z][0-9]{2}[a-z][0-9]{3}[a-z]$/i';
+    const REGEX_CODICEFISCALE = '/^[a-z]{6}[0-9lmnpqrstuvLMNPQRSTUV]{2}[a-z][0-9lmnpqrstuvLMNPQRSTUV]{2}[a-z][0-9lmnpqrstuvLMNPQRSTUV]{3}[a-z]$/i';
 
     // women char
     const CHR_WOMEN = 'F';
@@ -29,6 +29,12 @@ class Checker
      * @var string
      */
     private $sex = null;
+
+    /**
+     * Real Country Birth
+     * @var integer
+     */
+    private $realCountryBirth = null;
 
     /**
      * Country Birth
@@ -143,6 +149,17 @@ class Checker
     }
 
 
+
+    /**
+     * Getter CountryBirth
+     * @return integer
+     */
+    public function getRealCountryBirth()
+    {
+        return $this->realCountryBirth;
+    }
+
+
     /**
      * Getter YearBirth
      * @return integer
@@ -223,16 +240,16 @@ class Checker
             if (!($this->listCtrlCode[($pari + $dispari) % 26] === $cFCharList[15])) {
                 $this->raiseException(4);
             }
-
+            $tempCFCharList = $cFCharList;
             // replace "omocodie"
             for ($i = 0; $i < count($this->listSostOmocodia); $i++) {
                 if (!is_numeric($cFCharList[$this->listSostOmocodia[$i]])) {
-                    $CFCharList[$this->listSostOmocodia[$i]] = $this->listDecOmocodia[$cFCharList[$this->listSostOmocodia[$i]]];
+                    $tempCFCharList[$this->listSostOmocodia[$i]] = $this->listDecOmocodia[$cFCharList[$this->listSostOmocodia[$i]]];
                 }
             }
-
+            $tempCodiceFiscaleAdattato = implode($tempCFCharList);
             $codiceFiscaleAdattato = implode($cFCharList);
-
+            $this->realCountryBirth = substr($tempCodiceFiscaleAdattato, 11, 4);
             // get fiscal code data
             $this->sex = ((int)(substr($codiceFiscaleAdattato, 9, 2) > 40) ? self::CHR_WOMEN : self::CHR_MALE);
             $this->countryBirth = substr($codiceFiscaleAdattato, 11, 4);
