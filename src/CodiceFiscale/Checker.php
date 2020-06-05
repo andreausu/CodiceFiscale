@@ -46,6 +46,12 @@ class Checker
      * Day Birth
      * @var integer
      */
+    private $realDayBirth = null;
+
+    /**
+     * Day Birth
+     * @var integer
+     */
     private $dayBirth = null;
 
     /**
@@ -53,6 +59,12 @@ class Checker
      * @var integer
      */
     private $monthBirth = null;
+
+    /**
+     * Year Birth
+     * @var integer
+     */
+    private $realYearBirth = null;
 
     /**
      * Year Birth
@@ -164,10 +176,21 @@ class Checker
      * Getter YearBirth
      * @return integer
      */
+    public function getRealYearBirth()
+    {
+        return $this->realYearBirth;
+    }
+
+
+    /**
+     * Getter YearBirth
+     * @return integer
+     */
     public function getYearBirth()
     {
         return $this->yearBirth;
     }
+
 
 
     /**
@@ -177,6 +200,15 @@ class Checker
     public function getMonthBirth()
     {
         return $this->monthBirth;
+    }
+
+    /**
+     * Getter MonthBirth
+     * @return integer
+     */
+    public function getRealDayBirth()
+    {
+        return $this->realDayBirth;
     }
 
 
@@ -250,6 +282,8 @@ class Checker
             $tempCodiceFiscaleAdattato = implode($tempCFCharList);
             $codiceFiscaleAdattato = implode($cFCharList);
             $this->realCountryBirth = substr($tempCodiceFiscaleAdattato, 11, 4);
+            $this->realDayBirth = substr($tempCodiceFiscaleAdattato, 9, 2);
+            $this->realYearBirth = substr($tempCodiceFiscaleAdattato, 6, 2);
             // get fiscal code data
             $this->sex = ((int)(substr($codiceFiscaleAdattato, 9, 2) > 40) ? self::CHR_WOMEN : self::CHR_MALE);
             $this->countryBirth = substr($codiceFiscaleAdattato, 11, 4);
