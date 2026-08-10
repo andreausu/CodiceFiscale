@@ -10,7 +10,7 @@ namespace CodiceFiscale;
 class Checker
 {
     // fiscal's code regex
-    const REGEX_CODICEFISCALE = '/^[a-z]{6}[0-9]{2}[a-z][0-9]{2}[a-z][0-9]{3}[a-z]$/i';
+    const REGEX_CODICEFISCALE = '/^[a-z]{6}[0-9lmnpqrstuvLMNPQRSTUV]{2}[a-z][0-9lmnpqrstuvLMNPQRSTUV]{2}[a-z][0-9lmnpqrstuvLMNPQRSTUV]{3}[a-z]$/i';
 
     // women char
     const CHR_WOMEN = 'F';
@@ -31,10 +31,22 @@ class Checker
     private $sex = null;
 
     /**
+     * Real Country Birth
+     * @var integer
+     */
+    private $realCountryBirth = null;
+
+    /**
      * Country Birth
      * @var integer
      */
     private $countryBirth = null;
+
+    /**
+     * Day Birth
+     * @var integer
+     */
+    private $realDayBirth = null;
 
     /**
      * Day Birth
@@ -47,6 +59,12 @@ class Checker
      * @var integer
      */
     private $monthBirth = null;
+
+    /**
+     * Year Birth
+     * @var integer
+     */
+    private $realYearBirth = null;
 
     /**
      * Year Birth
@@ -143,6 +161,17 @@ class Checker
     }
 
 
+
+    /**
+     * Getter CountryBirth
+     * @return integer
+     */
+    public function getRealCountryBirth()
+    {
+        return $this->realCountryBirth;
+    }
+
+
     /**
      * Getter YearBirth
      * @return integer
@@ -151,6 +180,18 @@ class Checker
     {
         return $this->yearBirth;
     }
+
+
+
+    /**
+     * Getter YearBirth
+     * @return integer
+     */
+    public function getRealYearBirth()
+    {
+        return $this->realYearBirth;
+    }
+
 
 
     /**
@@ -170,6 +211,16 @@ class Checker
     public function getDayBirth()
     {
         return $this->dayBirth;
+    }
+
+
+    /**
+     * Getter DayBirth
+     * @return integer
+     */
+    public function getRealDayBirth()
+    {
+        return $this->realDayBirth;
     }
 
 
@@ -223,16 +274,18 @@ class Checker
             if (!($this->listCtrlCode[($pari + $dispari) % 26] === $cFCharList[15])) {
                 $this->raiseException(4);
             }
-
+            $tempCFCharList = $cFCharList;
             // replace "omocodie"
             for ($i = 0; $i < count($this->listSostOmocodia); $i++) {
                 if (!is_numeric($cFCharList[$this->listSostOmocodia[$i]])) {
-                    $CFCharList[$this->listSostOmocodia[$i]] = $this->listDecOmocodia[$cFCharList[$this->listSostOmocodia[$i]]];
+                    $cFCharList[$this->listSostOmocodia[$i]] = $this->listDecOmocodia[$cFCharList[$this->listSostOmocodia[$i]]];
                 }
             }
-
+            $tempCodiceFiscaleAdattato = implode($tempCFCharList);
             $codiceFiscaleAdattato = implode($cFCharList);
-
+            $this->realCountryBirth = substr($tempCodiceFiscaleAdattato, 11, 4);
+            $this->realYearBirth = substr($tempCodiceFiscaleAdattato, 6, 2);
+            $this->realDayBirth = substr($tempCodiceFiscaleAdattato, 9, 2);
             // get fiscal code data
             $this->sex = ((int)(substr($codiceFiscaleAdattato, 9, 2) > 40) ? self::CHR_WOMEN : self::CHR_MALE);
             $this->countryBirth = substr($codiceFiscaleAdattato, 11, 4);
